@@ -13,6 +13,7 @@ import Home from "../pages/Home"
 // import AdminDashboard from "../pages/AdminDashboard";
 // import AdminProducts from "../pages/AdminProducts";
 import NotFound from "../pages/NotFound";
+import Shop from "../pages/Shop";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { path: "/", element: <Home /> },
-    //   { path: "/products", element: <Products /> },
+      { path: "/shop", element: <Shop /> },
     //   { path: "/products/:id", element: <ProductDetails /> },
     //   { path: "/cart", element: <Cart /> },
     //   { path: "/checkout", element: <Checkout /> },
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     // add to home section parts all about our Wd
     ],
   },
+  {
+  path: "/shop",
+  element: <Shop />,
+},
   {
     path: "/admin",
     element: <AdminLayout />,

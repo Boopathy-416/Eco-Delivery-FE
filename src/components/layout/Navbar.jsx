@@ -1,12 +1,5 @@
 ﻿import { useState, useEffect, useRef } from "react";
-import {
-  Volume2,
-  VolumeX,
-  Menu,
-  X,
-  ShoppingCartIcon,
-  Waves,
-} from "lucide-react";
+import { Volume2, VolumeX, X,} from "lucide-react";
 import gsap from "gsap";
 import audios from "../../assets/audio/preview.mp3";
 import { Link } from "react-router-dom";
@@ -16,7 +9,12 @@ import {
   FaTwitter,
   FaLinkedinIn,
   FaYoutube,
+  FaShoppingBag,
 } from "react-icons/fa";
+import { RiShoppingCartFill } from "react-icons/ri";
+import { GiShop } from "react-icons/gi";
+import { FaRupeeSign } from "react-icons/fa";
+
 
 export default function Navbar() {
   const [isMuted, setIsMuted] = useState(true);
@@ -28,6 +26,42 @@ export default function Navbar() {
   const menuItemsRef = useRef(null);
   const closeButtonRef = useRef(null);
   const isOpen = useRef(false);
+  const cartRef = useRef(null);
+  const inrRef = useRef(null);
+  useEffect(() => {
+    const cart = cartRef.current;
+    const inr = inrRef.current;
+
+    const handleMouseEnter = () => {
+      gsap.to(cart, { x: 40, duration: 0.4, ease: "power3.out" });
+      gsap.fromTo(
+        inr,
+        { opacity: 0, x: -20, scale: 0.8 },
+        { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: "power3.out" }
+      );
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(cart, { x: 0, duration: 0.4, ease: "power3.inOut" });
+      gsap.to(inr, {
+        opacity: 0,
+        x: -20,
+        scale: 0.8,
+        duration: 0.4,
+        ease: "power3.inOut",
+      });
+    };
+
+    const parent = cart.parentElement;
+    parent.addEventListener("mouseenter", handleMouseEnter);
+    parent.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      parent.removeEventListener("mouseenter", handleMouseEnter);
+      parent.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -215,36 +249,111 @@ export default function Navbar() {
     <>
       <div
         ref={menuRef}
-        className="fixed inset-0 z-50 bg-gradient-to-br from-purple-600 via-pink-500 md:rounded-b-full to-orange-400 flex items-center justify-center"
+        className="fixed inset-0 z-50  bg-gradient-to-br from-purple-600 via-pink-500 md:rounded-b-full to-orange-400 flex items-center justify-center"
         style={{ visibility: "hidden" }}
       >
+        <svg
+          class="absolute top-0 left-0 w-full"
+          height="60"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 60"
+        >
+          <path
+            d="M0,20 Q300,0 600,20 T1200,20 L1200,0 L0,0 Z"
+            fill="#3b82f6"
+            opacity="0.8"
+          />
+          <path
+            d="M0,30 Q300,10 600,30 T1200,30 L1200,0 L0,0 Z"
+            fill="#3b82f6"
+            opacity="0.6"
+          />
+          <path
+            d="M0,40 Q300,20 600,40 T1200,40 L1200,0 L0,0 Z"
+            fill="#3b82f6"
+            opacity="0.4"
+          />
+          <path
+            d="M0,50 Q300,30 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="#3b82f6"
+            opacity="0.2"
+          />
+        </svg>
+
+        <div className="absolute inset-0 pointer-events-none">
+          <svg
+            class="absolute top-0 left-0 w-full"
+            height="60"
+            preserveAspectRatio="none"
+            viewBox="0 0 1200 60"
+          >
+            <path
+              d="M0,20 Q300,0 600,20 T1200,20 L1200,0 L0,0 Z"
+              fill="#3b82f6"
+              opacity="0.8"
+            />
+            <path
+              d="M0,30 Q300,10 600,30 T1200,30 L1200,0 L0,0 Z"
+              fill="#3b82f6"
+              opacity="0.6"
+            />
+            <path
+              d="M0,40 Q300,20 600,40 T1200,40 L1200,0 L0,0 Z"
+              fill="#3b82f6"
+              opacity="0.4"
+            />
+            <path
+              d="M0,50 Q300,30 600,50 T1200,50 L1200,0 L0,0 Z"
+              fill="#3b82f6"
+              opacity="0.2"
+            />
+          </svg>
+          <img
+            src="src/assets/images/1.png"
+            alt="cloud"
+            className="cloud z-20 absolute top-10 opacity-15 left-10 w-full"
+          />
+          <img
+            src="src/assets/images/2.png"
+            alt="cloud"
+            className="cloud z-20 absolute top-20 right-20 opacity-15 w-full"
+          />
+          <img
+            src="src/assets/images/3.png"
+            alt="cloud"
+            className="cloud z-20 absolute bottom-20 opacity-50 left-1/2 w-full"
+          />
+        </div>
         {/* Close Button */}
         <button
           ref={closeButtonRef}
-          className="absolute top-8 right-8 w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors"
+          className="absolute top-8 z-22 right-8 w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors"
           aria-label="Close menu"
         >
-          <X className="w-8 h-8 text-white " strokeWidth={3.5} />
+          <X className="w-8 h-8 text-[#dedede]  " strokeWidth={3.5} />
         </button>
 
         {/* Menu Items */}
-        <div ref={menuItemsRef} className="flex flex-col items-center gap-8">
+        <div
+          ref={menuItemsRef}
+          className="flex flex-col z-23  items-center gap-8"
+        >
           {menuItems.map((item) => (
             <Link
               key={item.name}
-              to={item.href} // ✅ React Router
-              className="text-6xl md:text-8xl font-black text-white hover:text-white/80 transition-all duration-300 hover:scale-110 relative group"
+              to={item.href}
+              className="text-6xl stylefont md:text-8xl font-black tracking-wider text-[#dedede]  opacity-70 hover:opacity-100 hover:text-gray-300 transition-all duration-300 hover:scale-110 relative group"
             >
               {item.name}
-              <span className="absolute bottom-0 left-0 w-0 h-2 bg-white group-hover:w-full transition-all duration-500" />
+              <span className="absolute bottom-0  left-0 w-0 h-2 bg-white/60 group-hover:w-full transition-all rounded-r-2xl duration-800" />
             </Link>
           ))}
-          <div className="flex space-x-6 ">
+          <div className="flex space-x-6 z-24 shadow-amber-900 shadow-2xl bg-amber-300 p-1 px-2 rounded-2xl ">
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-gray-400 hover:text-blue-500 transition"
+              className="inline-block text-gray-400  hover:text-blue-500 transition"
             >
               <FaFacebookF size={20} />
             </a>
@@ -281,47 +390,70 @@ export default function Navbar() {
               <FaYoutube size={20} />
             </a>
           </div>
+          <p className="text-[11px] font-bold text-gray-400 tracking-widest">
+            &copy; {new Date().getFullYear()} Bpy Creation. All rights reserved.
+          </p>
         </div>
 
         {/* Decorative Elements */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
       </div>
-      <nav className="fixed  top-0 left-0 right-0 z-40 bg-transparent border-gray-300 border-b backdrop-blur-md ">
-        <div className="container mx-auto px-6 py-4">
+      <nav className="fixed ring-1 top-0 left-0 right-0 z-40 bg-transparent  backdrop-blur-sm ">
+        <div className="container mx-auto px-6 pt-4 pb-2 ">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a
               href="/"
-              className="md:text-4xl text-2xl stylefont text-black backdrop-opacity-70 tracking-wider hover:opacity-80 transition-opacity"
+              className="md:text-4xl  mask-linear-from-white/200  text-xl stylefont text-[#dedede]  backdrop-opacity-70 tracking-wider hover:opacity-80 transition-opacity"
             >
-              Eco<span className=" md:text-4xl">Delivery </span>
-              <ShoppingCartIcon className=" inline-flex" />
+              Trends<span className=" md:text-4xl text-[#1eff1a]">Magic</span>
             </a>
 
             {/* Center Menu Button */}
             <button
               id="menu-toggle"
-              className="flex items-center justify-center w-20 h-14 rounded-xl bg-gradient-to-br from-purple-100 to-pink-100 hover:from-purple-200 hover:to-pink-200 transition-all hover:border-0 border border-gray-400 border-b-4  duration-300 hover:scale-105"
+              className="flex items-center justify-center md:w-18 md:h-14 w-10  rounded-b-md md:rounded-b-xl 
+               transition-all  duration-300 hover:scale-105"
               aria-label="Toggle menu"
             >
-              <Waves className="w-6 h-6 text-purple-600 " strokeWidth={2.9} />
+              <GiShop    className=" md:text-4xl hover:translate-y-2 transition-all duration-300 hover:text-[#1eff1a] text-2xl
+               text-[#dedede]    cursor-pointer "
+                strokeWidth={0.1}  />
+
+
             </button>
 
             {/* Right Side - Shop & Cart */}
-            <div className="flex items-center tracking-wider gap-6">
+            <div className="flex items-center  tracking-tighter gap-6 md:gap-16">
               <a
                 href="/shop"
-                className="md:text-4xl text-2xl font-bold  hover:opacity-80 transition-colors flex items-center gap-2"
+                className="md:text-4xl  text-[#dedede]  text-2xl font-bold 
+                 hover:opacity-80 transition-colors flex items-center gap-2"
               >
-                shop
+              <FaShoppingBag className="hover:translate-y-2 transition-all duration-300 hover:text-[#1eff1a]" />
               </a>
-              <a
-                href="/cart"
-                className="md:text-4xl text-2xl font-bold hover:opacity-80 transition-colors flex items-center gap-2"
-              >
-                cart
-              </a>
+
+
+
+  <a
+      href="/cart"
+      className="relative flex items-center justify-center group overflow-hidden"
+    >
+      {/* INR Icon */}
+      <FaRupeeSign
+        ref={inrRef}
+        className="absolute left-0 text-[#017db3] opacity-0 text-2xl md:text-3xl"
+      />
+
+      {/* Cart Icon */}
+      <RiShoppingCartFill
+        ref={cartRef}
+        className="text-[#d44300] group-hover:text-[#2a2a2a5b]  md:text-4xl text-2xl font-bold rounded-2xl"
+      />
+    </a>
+
+
             </div>
           </div>
         </div>
@@ -329,7 +461,7 @@ export default function Navbar() {
       <button
         ref={buttonRef}
         onClick={toggleMute}
-        className="fixed bottom-8 left-8 z-40 w-16 h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 text-white shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+        className="fixed bottom-8 left-8 z-40 w-16 h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 text-[#dedede]  shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
         aria-label={isMuted ? "Unmute music" : "Mute music"}
       >
         <div ref={iconRef} className="relative">
@@ -352,7 +484,7 @@ export default function Navbar() {
       {/* Tooltip */}
       <div className="fixed bottom-8 left-28 z-40 pointer-events-none">
         {/* <div
-          className={`px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-medium transition-all duration-300 ${
+          className={`px-4 py-2 rounded-lg bg-gray-900 text-[#dedede]  text-sm font-medium transition-all duration-300 ${
             isMuted ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -362,7 +494,7 @@ export default function Navbar() {
       <button
         ref={buttonRef}
         onClick={toggleMute}
-        className="fixed bottom-8 left-8 z-40 w-16 h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 text-white shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+        className="fixed bottom-8 left-8 z-40 w-16 h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 text-[#dedede]  shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
         aria-label={isMuted ? "Unmute music" : "Mute music"}
       >
         <div ref={iconRef} className="relative">
@@ -385,7 +517,7 @@ export default function Navbar() {
       {/* Tooltip */}
       <div className="fixed bottom-8 left-28 z-40 pointer-events-none">
         {/* <div
-          className={`px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-medium transition-all duration-300 ${
+          className={`px-4 py-2 rounded-lg bg-gray-900 text-[#dedede]  text-sm font-medium transition-all duration-300 ${
             isMuted ? "opacity-100" : "opacity-0"
           }`}
         >
