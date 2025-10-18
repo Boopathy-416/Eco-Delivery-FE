@@ -119,32 +119,32 @@ export default function Home() {
       {/* Clouds Layer */}
       <div className="absolute inset-0 pointer-events-none">
         {/* <img
-          src="src/assets/images/1.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
           alt="cloud"
           className="cloud z-40 opacity-90 absolute top-18 left-10 w-full"
         /> */}
         <img
-          src="src/assets/images/2.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784416/2_bvxwyu.png"
           alt="cloud"
           className="cloud absolute  top-0 right-20 opacity-15 w-full"
         />
         <img
-          src="src/assets/images/3.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784478/3_okmx0b.png"
           alt="cloud"
           className="cloud absolute   bottom-10 left-1/2 w-full"
         />
         <img
-          src="src/assets/images/1.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
           alt="cloud"
           className="cloud absolute  opacity-25 top-10 left-10 w-full"
         />
         <img
-          src="src/assets/images/2.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784416/2_bvxwyu.png"
           alt="cloud"
           className="cloud absolute top-20 right-20 opacity-15 w-full"
         />
         <img
-          src="src/assets/images/3.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784478/3_okmx0b.png"
           alt="cloud"
           className="cloud absolute  bottom-10 left-1/2 w-full"
         />
@@ -157,83 +157,7 @@ export default function Home() {
 
       <AboutSection />
 
-      {/* Section 3: Products */}
-      <section className="section min-h-screen flex items-center justify-center  py-20">
-        <div className="absolute inset-0 pointer-events-none"></div>
-        <div className="container mx-auto px-6">
-          <h2 className="animate-title text-6xl md:text-7xl font-bold text-gray-900 mb-12 text-center">
-            Products & Quality
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Premium Selection",
-                desc: "Handpicked ingredients",
-                icon: "🍬",
-              },
-              {
-                title: "Quality Testing",
-                desc: "Rigorous standards",
-                icon: "🔬",
-              },
-              { title: "Fresh Daily", desc: "Made to order", icon: "✨" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="card-item p-8 text-center hover:shadow-xl transition-shadow bg-white/80 rounded-2xl"
-              >
-                <div className="text-6xl mb-4">{item.icon}</div>
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-lg">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Section 4: Collection */}
-      <section className="section min-h-screen flex items-center justify-center  py-20">
-        <div className="absolute inset-0 pointer-events-none"></div>
-        <div className="container mx-auto px-6">
-          <h2 className="animate-title text-6xl md:text-7xl font-bold text-gray-900 mb-12 text-center">
-            Latest Collection
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div
-                key={item}
-                className="card-item overflow-hidden hover:shadow-2xl transition-all bg-white/20 rounded-2xl"
-              >
-                <div className="animate-image">
-                  <img
-                    src={`/products/candy-${item}.jpg`}
-                    alt={`Product ${item}`}
-                    className="w-full h-64 object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl   mb-2 text-gray-900">
-                    Sweet Delight {item}
-                  </h3>
-                  <p className="text-gray-600  mb-4">
-                    Premium handcrafted confection
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-purple-600">
-                      $24.99
-                    </span>
-                    <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

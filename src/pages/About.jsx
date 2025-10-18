@@ -123,7 +123,7 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-w-screen overflow-hidden bg-[#6a2020] py-24 md:py-32"
+      className="relative min-w-screen overflow-hidden bg-[#006eff4c] py-24 md:py-32"
       aria-labelledby="about-title"
     >
               <svg
@@ -139,7 +139,7 @@ export default function AboutSection() {
             />
             <path
               d="M0,30 Q300,10 600,30 T1200,30 L1200,0 L0,0 Z"
-              fill="#381010"
+              fill="#000"
               opacity="0.6"
             />
             <path
@@ -229,22 +229,22 @@ export default function AboutSection() {
           className="cloud md:w-[640px] w-[120px] float absolute bottom-[-2rem] left-[-5%] opacity-80  scale-[1.1]"
         />
         <img
-          src="src/assets/images/1.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
           alt="image"
           className="cloud md:w-[500px] w-[120px] absolute top-[3rem] left-[15%] opacity-50 blur-[2px] scale-[0.9]"
         />
         <img
-          src="src/assets/images/1.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
           alt="image"
           className="cloud md:w-[600px] w-[120px] absolute bottom-[24rem] left-[45%] opacity-75 blur-[1.5px] scale-[1.05]"
         />
         <img
-          src="src/assets/images/1.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
           alt="image"
           className="cloud md:w-[600px] w-[120px] absolute bottom-[-10rem] right-[70%] opacity-80 blur-[1px] scale-[1.1]"
         />
         <img
-          src="src/assets/images/1.png"
+          src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
           alt="image"
           className="cloud md:w-[350px] w-[1\420px] absolute bottom-[-18rem] left-[48%] opacity-65 blur-[2px] scale-[0.95]"
         />
