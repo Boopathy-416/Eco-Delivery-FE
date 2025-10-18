@@ -78,17 +78,17 @@ export default function HeroVideo() {
           </button>
           <div className="absolute inset-0 pointer-events-none">
             <img
-              src="src/assets/images/1.png"
+              src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
               alt="cloud"
               className="cloud float absolute md:top-18 top-50  md:bottom-0 -bottom-60 left-20  md:left-0  w-full"
             />
             <img
-              src="src/assets/images/1.png"
+              src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
               alt="cloud"
               className="cloud float absolute md:top-18 top-39 md:bottom-0 -bottom-60 -left-10 md:-left-50 w-full"
             />
             <img
-              src="src/assets/images/1.png"
+              src="https://res.cloudinary.com/dpm3bum4n/image/upload/v1760784212/1_vkbmvg.png"
               alt="cloud"
               className="cloud float absolute md:top-18 top-70 md:bottom-0 -bottom-60 -left-10 md:left-100 w-full"
             />
