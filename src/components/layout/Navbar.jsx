@@ -313,24 +313,20 @@ export default function Navbar() {
             alt="cloud"
             className="cloud z-20 absolute top-10 opacity-15 left-10 w-full"
           />
-          <img
-            src="src/assets/images/2.png"
-            alt="cloud"
-            className="cloud z-20 absolute top-20 right-20 opacity-15 w-full"
-          />
+
           <img
             src="src/assets/images/3.png"
             alt="cloud"
-            className="cloud z-20 absolute bottom-20 opacity-50 left-1/2 w-full"
+            className="cloud z-20 absolute bottom-80 opacity-65  left-3/4 w-[60%] "
           />
         </div>
         {/* Close Button */}
         <button
           ref={closeButtonRef}
-          className="absolute top-8 z-22 right-8 w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors"
+          className="absolute top-8 z-22 right-8 w-16 h-16 ring-1 ring-black/40  rounded-4xl bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors"
           aria-label="Close menu"
         >
-          <X className="w-8 h-8 text-[#dedede]  " strokeWidth={3.5} />
+          <X className="w-10 h-10 text-[#434343e6]  cursor-pointer  " strokeWidth={1.5} />
         </button>
 
         {/* Menu Items */}
@@ -461,14 +457,14 @@ export default function Navbar() {
       <button
         ref={buttonRef}
         onClick={toggleMute}
-        className="fixed bottom-8 left-8 z-40 w-16 h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 text-[#dedede]  shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+        className="fixed bottom-8 left-8 z-40 w-16  h-16 rounded-full bg-[url(src/assets/images/stiker.svg)] bg-cover text-amber-700   shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
         aria-label={isMuted ? "Unmute music" : "Mute music"}
       >
         <div ref={iconRef} className="relative">
           {isMuted ? (
-            <VolumeX className="w-7 h-7" strokeWidth={2.5} />
+            <VolumeX className="w-5 h-5" strokeWidth={2.5} />
           ) : (
-            <Volume2 className="w-7 h-7 animate-pulse" strokeWidth={2.5} />
+            <Volume2 className="w-5 h-5 animate-pulse" strokeWidth={2.5} />
           )}
         </div>
 
@@ -483,13 +479,7 @@ export default function Navbar() {
 
       {/* Tooltip */}
       <div className="fixed bottom-8 left-28 z-40 pointer-events-none">
-        {/* <div
-          className={`px-4 py-2 rounded-lg bg-gray-900 text-[#dedede]  text-sm font-medium transition-all duration-300 ${
-            isMuted ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          Click to unmute music 🎵
-        </div> */}
+
       </div>
       <button
         ref={buttonRef}
